@@ -9,10 +9,11 @@ const CreateTask = ({ history }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    setLoading(true);
     try {
       await tasksApi.create({ task: { title } });
-      setLoading(false);
       history.push("/dashboard");
+      setLoading(false);
     } catch (error) {
       logger.error(error);
       setLoading(false);
