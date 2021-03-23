@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 // import SignUp from "components/Authentication/SignUp";
 import CreateTask from "components/Tasks/CreateTask";
 // import EditTask from "components/Tasks/EditTask";
+import ShowTask from "components/Tasks/ShowTask";
 import Dashboard from "components/Dashboard";
 import PageLoader from "components/PageLoader";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
@@ -33,6 +34,7 @@ const App = () => {
       <ToastContainer />
       <Switch>
         {/* <Route exact path="/tasks/:id/edit" component={EditTask} /> */}
+        <Route exact path="/tasks/:id/show" component={ShowTask} />
         <Route exact path="/tasks/create" component={CreateTask} />
         <Route exact path="/dashboard" component={Dashboard} />
         {/* <Route exact path="/sign-up" component={SignUp} /> */}

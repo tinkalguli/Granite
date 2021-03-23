@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :load_task, only: [:show]
+
   def index
     tasks = Task.all
     render status: :ok, json: { tasks: tasks }
@@ -14,9 +16,19 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    render status: :ok, json: { task: @task }
+  end
+
   private
 
   def task_params
     params.require(:task).permit(:title)
+  end
+
+  def load_task
+    @task = Task.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => errors
+      render json: {errors: errors}
   end
 end
