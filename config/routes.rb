@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :tasks, only: [:index, :create]
   resources :tasks, except: %i[new edit]
 
   root "home#index"
