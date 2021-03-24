@@ -5,7 +5,7 @@ import Container from "components/Container";
 import TaskForm from "./Form/TaskForm";
 import tasksApi from "apis/tasks";
 import PageLoader from "components/PageLoader";
-import Toastr from "components/Common/Toastr";
+// import Toastr from "components/Common/Toastr";
 
 const EditTask = ({ history }) => {
   const [title, setTitle] = useState("");
@@ -22,7 +22,7 @@ const EditTask = ({ history }) => {
         payload: { task: { title, user_id: userId } },
       });
       setLoading(false);
-      Toastr.success("Successfully updated task.");
+      // Toastr.success("Successfully updated task.");
       history.push("/dashboard");
     } catch (error) {
       setLoading(false);
