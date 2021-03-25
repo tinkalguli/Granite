@@ -18,6 +18,7 @@ const EditTask = ({ history }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    setLoading(true);
     try {
       await tasksApi.update({
         id,

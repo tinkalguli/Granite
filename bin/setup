@@ -17,6 +17,9 @@ FileUtils.chdir APP_ROOT do
   system! 'gem install bundler --conservative'
   system('bundle check') || system!('bundle install')
 
+  puts "\n== Setting up the app =="
+  system! 'bundle exec rake setup'
+
   # Install JavaScript dependencies
   system! 'bin/yarn'
 

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { either, isEmpty, isNil } from "ramda";
 
-// import Login from "components/Authentication/Login";
-import SignUp from "components/Authentication/SignUp";
+import Login from "components/Authentication/Login";
+import Signup from "components/Authentication/Signup";
+import PrivateRoute from "components/Common/PrivateRoute";
+import { getFromLocalStorage } from "helpers/storage";
 import CreateTask from "components/Tasks/CreateTask";
 import EditTask from "components/Tasks/EditTask";
 import ShowTask from "components/Tasks/ShowTask";
@@ -14,6 +17,8 @@ import { initializeLogger } from "common/logger";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const authToken = getFromLocalStorage("authToken");
+  const isLoggedIn = !either(isNil, isEmpty)(authToken) && authToken !== "null";
 
   useEffect(() => {
     initializeLogger();
@@ -37,8 +42,14 @@ const App = () => {
         <Route exact path="/tasks/:id/show" component={ShowTask} />
         <Route exact path="/tasks/create" component={CreateTask} />
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/sign-up" component={SignUp} />
-        {/* <Route exact path="/" component={Login} /> */}
+        <Route exact path="/sign-up" component={Signup} />
+        <Route exact path="/login" component={Login} />
+        <PrivateRoute
+          path="/"
+          redirectRoute="/login"
+          condition={isLoggedIn}
+          component={Dashboard}
+        />
       </Switch>
     </Router>
   );
