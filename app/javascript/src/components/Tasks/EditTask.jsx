@@ -22,7 +22,7 @@ const EditTask = ({ history }) => {
     try {
       await tasksApi.update({
         id,
-        payload: { task: { title, user_id: userId } },
+        task: { title, user_id: userId, authorize_owner: true },
       });
       setLoading(false);
       history.push("/dashboard");
