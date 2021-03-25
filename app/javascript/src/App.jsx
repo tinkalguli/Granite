@@ -3,7 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 // import Login from "components/Authentication/Login";
-// import SignUp from "components/Authentication/SignUp";
+import SignUp from "components/Authentication/SignUp";
 import CreateTask from "components/Tasks/CreateTask";
 import EditTask from "components/Tasks/EditTask";
 import ShowTask from "components/Tasks/ShowTask";
@@ -37,7 +37,7 @@ const App = () => {
         <Route exact path="/tasks/:id/show" component={ShowTask} />
         <Route exact path="/tasks/create" component={CreateTask} />
         <Route exact path="/dashboard" component={Dashboard} />
-        {/* <Route exact path="/sign-up" component={SignUp} /> */}
+        <Route exact path="/sign-up" component={SignUp} />
         {/* <Route exact path="/" component={Login} /> */}
       </Switch>
     </Router>

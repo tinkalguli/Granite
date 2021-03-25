@@ -30,4 +30,4 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  successfully_created: "Ticket was successfully created!"
+  successfully_created: "%{entity} was successfully created!"
