@@ -1,8 +1,11 @@
 import React from "react";
 import NavItem from "./NavItem";
 import { getFromLocalStorage, setToLocalStorage } from "helpers/storage";
+import authApi from "apis/auth";
+import { resetAuthTokens } from "apis/axios";
+import { withRouter } from "react-router";
 
-const NavBar = () => {
+const NavBar = ({ history }) => {
   const userName = getFromLocalStorage("authUserName");
 
   const handleLogout = async () => {
@@ -17,7 +20,7 @@ const NavBar = () => {
       resetAuthTokens();
       window.location.href = "/";
     } catch (error) {
-      logger.error(error);
+      // logger.error(error);
     }
   };
 
@@ -60,4 +63,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
