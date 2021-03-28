@@ -41,3 +41,6 @@ workflows:
   commit:
     jobs:
       - build
+steps:
+  - checkout
+  - run: gem install bundler:2.2.3
