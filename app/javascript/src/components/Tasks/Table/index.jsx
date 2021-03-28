@@ -8,6 +8,7 @@ const Table = ({
   destroyTask,
   showTask,
   handleProgressToggle,
+  starTask,
 }) => {
   return (
     <div className="flex flex-col">
@@ -22,6 +23,7 @@ const Table = ({
                 type={type}
                 handleProgressToggle={handleProgressToggle}
                 showTask={showTask}
+                starTask={starTask}
               />
             </table>
           </div>
