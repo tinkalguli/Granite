@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'react-rails'
 gem 'bcrypt', '~> 3.1.13'
 gem 'pundit'
+gem 'rexml'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
